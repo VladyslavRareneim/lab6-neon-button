@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 - Анімація</title>
+    <style>
+        /* Загальні налаштування для центрування та темного фону */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #050801;
+            font-family: 'Consolas', sans-serif;
+        }
+
+        /* Стилі для самої кнопки */
+        a.neon-button {
+            position: relative;
+            display: inline-block;
+            padding: 25px 30px;
+            color: #03e9f4;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.5s; /* Плавний перехід для hover-ефекту */
+            letter-spacing: 4px;
+            overflow: hidden;
+            font-size: 24px;
+            font-weight: bold;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+        }
+
+        /* Ефект при наведенні (світіння) */
+        a.neon-button:hover {
+            background: #03e9f4;
+            color: #050801;
+            box-shadow: 0 0 5px #03e9f4,
+                        0 0 25px #03e9f4,
+                        0 0 50px #03e9f4,
+                        0 0 200px #03e9f4;
+        }
+
+        /* Налаштування для анімованих ліній навколо кнопки */
+        a.neon-button span {
+            position: absolute;
+            display: block;
+        }
+
+        /* Верхня лінія */
+        a.neon-button span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            animation: animate1 1s linear infinite;
+        }
+
+        @keyframes animate1 {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        /* Права лінія */
+        a.neon-button span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: animate2 1s linear infinite;
+            animation-delay: 0.25s; /* Затримка для послідовного руху */
+        }
+
+        @keyframes animate2 {
+            0% { top: -100%; }
+            50%, 100% { top: 100%; }
+        }
+
+        /* Нижня лінія */
+        a.neon-button span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: animate3 1s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes animate3 {
+            0% { right: -100%; }
+            50%, 100% { right: 100%; }
+        }
+
+        /* Ліва лінія */
+        a.neon-button span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: animate4 1s linear infinite;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes animate4 {
+            0% { bottom: -100%; }
+            50%, 100% { bottom: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Кнопка з 4 span для створення анімованих рамок -->
+    <a href="#" class="neon-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Hover Me
+    </a>
+
+</body>
+</html>
